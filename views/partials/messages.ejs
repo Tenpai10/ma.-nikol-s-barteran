@@ -1,5 +1,11 @@
+
 <% if(typeof errors != 'undefined'){%>
-    <% errors.forEach(function(error){%>
-        <%error.msg%>
-    })%>
+    <div style="color: red;">
+        <h4>Couldn't register!</h4>
+    </div>
+    <% errors.forEach((error) =>{%>
+        <div style="color:red">
+            <%=error.msg%>
+        </div>
+    <%})%>
 <%}%>
