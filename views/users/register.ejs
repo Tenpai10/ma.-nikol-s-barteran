@@ -1,51 +1,53 @@
-<form style = "align-self: center;" action="/users/register" method="POST">  
-    <div class="container">  
-      <h1>Sign Up</h1>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	        <div class="main-w3layouts wrapper">
+		        <h1 style = "color: white; font-family: Georgia, 'Times New Roman', Times, serif; margin-bottom: 0px; padding-bottom: 0px;">Welcome Aboard!</h1>
+		            <div class="main-agileinfo">
+			            <div class="agileits-top">
+                        <form action="#" method="post">
+                            <input class="text" type="text" name="fname" placeholder="Firstname" required="">
+                            <input class="text" type="text" name="mname" placeholder="Middlename" required="">
+                                <input class="text" type="text" name="lname" placeholder="Lastname" required="">
+                                    
+                                    <div class="form-inline">
+                                    <select class="form-control form-control-sm" style="width: 30%; padding-right:1px;">
+                                        <option style="color: slategrey">-Birth Month-</option>
+                                        <%let month = ['January','Feburuary','March','April','May','June','July','August','September','October','November','December']%>
+                                        <%for(var value of month){%>
+                                          <option name="mm" value="<%= typeof month != 'undefined' ? month : ''%>"><%=value%></option>
+                                        <%}%>
+                                    </select>
+                                    <select class="form-control form-control-sm" style="width: 18%">
+                                        <option style="color: slategrey">-Day-</option>
+                                        <%for (let day=1; day <= 31; day++) {%>
+                                          <option name="dd" value="<%= typeof day != 'undefined' ? day : ''%>"><%=day%></option>
+                                         <%}%>
+                                    </select>
+                                    <select class="form-control form-control-sm" style="width: 20%">
+                                        <option style="color: slategrey">-Year-</option>
+                                        <%for (let year=2015; year >= 1980; year--) {%>
+                                          <option name="yy" value="<%= typeof day != 'undefined' ? day : ''%>"><%=year%></option>
+                                         <%}%>
+                                        
+                                    </select>
+                                    </div>
+                                    <br>
+                                    <input class="text" type="text" name="contact_number" placeholder="Contact No." required="">
+                                    <input class="text" type="text" name="address" placeholder="Address" required="">
+                                    <br>
+                                <input class="text" type="text" name="username" placeholder="Username" required="">
+                                <input class="text" type="text" name="email" placeholder="Email" required="">
+                                <input class="text" type="password" name="password" placeholder="Password" required="">
+                                <input class="text" type="password" name="password2" placeholder="Re-enter Password" required="">
+                                            
+					<div class="wthree-text">
+						<div class="clear"> </div>
+					</div>
+					<input type="submit" value="SIGN UP">
+				</form>
+        <p>Already have an account? <a href="login">Sign In</a></p>
         
-        <hr> 
-          <label>First Name : </label><span style="color:red">*</span>   
-            <input type="text" name="fname" value="<%= typeof fname != 'undefined' ? fname : '' %>" placeholder= "First name" size="10" required/>
-
-          <label>Middle Name : </label><span style="color:red">*</span>   
-            <input type="text" name="mname" value="<%= typeof mname != 'undefined' ? mname : '' %>" placeholder="Middle name" size="10" required/>
-               
-          <label>Last Name : </label><span style="color:red">*</span>  
-            <input type="text" name="lname" value="<%= typeof lname != 'undefined' ? lname : '' %>" placeholder="Last name" size="10"required/>   
-        
-            <label for="birthday">Birthday :</label><span style="color:red">*</span>
-            <input type="date" id="birthday" name="bday" value="<%= typeof bday != 'undefined' ? bday : '' %>" required>
-          
-              <div>  
-              <label>Gender : </label><br>  
-              <input type="radio" value="Male" name="gender" checked>Male   
-              <input type="radio" value="Female" name="gender"> Female   
-              </div>  
-
-                <label>Contact No. : </label><span style="color:red">*</span>  
-                <input type="text" name="phone" value="<%= typeof phone != 'undefined' ? phone : '' %>" placeholder="phone no." value="+63" size="2"required>   
-
-                    <label>Current Address :</label><span style="color:red">*</span>  
-                    <input type="text" name="address" value="<%= typeof address != 'undefined' ? address : '' %>" placeholder="Current Address" required>   
-
-                    <hr>
-                 <label><b>Username :</b></label><span style="color:red">*</span>  
-                <input type="text" name="username" value="<%= typeof username != 'undefined' ? username : '' %>" placeholder="Username" size="10"required/>   
-                
-                <label for="email"><b>Email</b></label><span style="color:red">*</span> 
-                <input type="text" placeholder="Enter Email" name="email" value="<%= typeof email != 'undefined' ? email : '' %>" required>  
-    
-              <label for="psw"><b>Password</b></label><span style="color:red">*</span>  
-              <input type="password" placeholder="Enter Password" name="psw" value="<%= typeof psw != 'undefined' ? psw : '' %>"required>  
-            
-            <label for="psw2"><b>Re-enter Password</b></label><span style="color:red">*</span>  
-            <input type="password" placeholder="Retype Password" name="psw2" value="<%= typeof psw2 != 'undefined' ? psw2 : '' %>"required> 
-            
-            <span style="color:red">* This field is required.</span>
-
-      <div class="container">
-        <div class="vertical-center">
-          <button type="submit" class="registerbtn">Register</button>
-          <br>Already have an account? <a href="/users/login" style="color:darkslateblue">Sign In</a>    
-      </div>
-        </div>
-</form>  
+      <%- include('../partials/messages')%>
+			</div>
+		</div>
+	</div>
